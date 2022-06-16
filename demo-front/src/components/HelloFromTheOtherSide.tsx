@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 import React from 'react';
 
 class HelloFromTheOtherSide extends React.Component {
@@ -13,12 +13,11 @@ class HelloFromTheOtherSide extends React.Component {
     this.apiPath = '/api/HelloFromTheOtherside?name=Me';
   }
 
-  componentWillMount() {
-    axios.get(this.apiPath).then((response: AxiosResponse) => {
-      this.hello = response.data;
-    });
+  async componentDidMount() {
+    const resp = await axios.get(this.apiPath);
+    this.hello = resp.data;
   }
-
+  
   render() {
     console.log('Starting rendering');
     return this.hello !== 'Yello' ?
