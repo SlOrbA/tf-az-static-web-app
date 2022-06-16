@@ -13,6 +13,7 @@ class HelloFromTheOtherSide extends React.Component {
         
       axios(options)
       .then(response => {
+        console.log(JSON.stringify(response.data));
         this.hello = JSON.stringify(response.data);
       })
       .catch( error => {
@@ -21,7 +22,7 @@ class HelloFromTheOtherSide extends React.Component {
     }
 
     render() {
- 
+      console.log('Starting rendering');
       return(
         <div>
           <p>{this.hello}</p>
