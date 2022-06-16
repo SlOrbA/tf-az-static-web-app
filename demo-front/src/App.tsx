@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import HelloFromHere from './components/HelloFromHere';
 import HelloFromTheOtherSide from './components/HelloFromTheOtherSide';

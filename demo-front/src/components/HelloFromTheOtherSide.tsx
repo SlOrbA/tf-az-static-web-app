@@ -1,5 +1,4 @@
-import axios, {AxiosResponse} from 'axios'
-import { response } from 'express';
+import axios from 'axios'
 function HelloFromTheOtherSide() {
 
     var config = {
