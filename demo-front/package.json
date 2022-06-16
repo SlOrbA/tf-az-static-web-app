@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://icy-river-0d35d7e03.azurestaticapps.net/",
+  "homepage": ".",
   "eslintConfig": {
     "extends": [
       "react-app",
