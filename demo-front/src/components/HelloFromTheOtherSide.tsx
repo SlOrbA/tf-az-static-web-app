@@ -7,7 +7,7 @@ class HelloFromTheOtherSide extends React.Component {
 
     render() {
       let options = {
-        url: 'https://icy-river-0d35d7e03.azurestaticapps.net/HelloFromTheOtherside?name=Me',
+        url: 'https://icy-river-0d35d7e03.azurestaticapps.net/api/HelloFromTheOtherside?name=Me',
         method: 'GET'
       };
         
