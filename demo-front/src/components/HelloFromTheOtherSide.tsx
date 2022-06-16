@@ -1,33 +1,32 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios'
 import React from 'react';
 
 class HelloFromTheOtherSide extends React.Component {
 
-    hello: string = 'Yello';
+  hello: string;
+  apiPath: string;
 
-    async componentDidMount() {
-      let options = {
-        url: 'https://icy-river-0d35d7e03.azurestaticapps.net/api/HelloFromTheOtherside?name=Me',
-        method: 'GET'
-      };
-        
-      axios(options)
-      .then(response => {
-        console.log(JSON.stringify(response.data));
-        this.hello = JSON.stringify(response.data);
-      })
-      .catch( error => {
-        console.log(error);
-      });
-    }
+  constructor(props: {} | Readonly<{}>){
+    super(props);
 
-    render() {
-      console.log('Starting rendering');
-      return(
-        <div>
-          <p>{this.hello}</p>
-        </div>
-      );
-    }
+    this.hello = 'Yello';
+    this.apiPath = '/api/HelloFromTheOtherside?name=Me';
+  }
+
+  componentWillMount() {
+    axios.get(this.apiPath).then((response: AxiosResponse) => {
+      this.hello = response.data;
+    });
+  }
+
+  render() {
+    console.log('Starting rendering');
+    return this.hello !== 'Yello' ?
+      <div>
+        <p>{this.hello}</p>
+      </div>
+      : null;
+  }
 }
 export default HelloFromTheOtherSide;
+
