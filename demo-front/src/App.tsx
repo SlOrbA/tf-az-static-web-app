@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <HelloFromHere />
+        <HelloFromHere></HelloFromHere>
           .. 
-        <HelloFromTheOtherSide />
+        <HelloFromTheOtherSide></HelloFromTheOtherSide>
       </header>
     </div>
   );

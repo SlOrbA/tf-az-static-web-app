@@ -1,24 +1,29 @@
-import axios from 'axios'
-function HelloFromTheOtherSide() {
+import axios from 'axios';
+import React from 'react';
 
-    var config = {
-        method: 'get',
-        url: 'https://icy-river-0d35d7e03.azurestaticapps.net/api/HelloFromTheOtherside?name=Me',
-        headers: { }
-    };
+class HelloFromTheOtherSide extends React.Component {
 
-    const HelloResponse = axios.get<String>(config.url)
-    .then(response => {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
+    hello: string = 'Yello';
+
+    render() {
+      let options = {
+        url: 'https://icy-river-0d35d7e03.azurestaticapps.net/HelloFromTheOtherside?name=Me',
+        method: 'GET'
+      };
+        
+      axios(options)
+      .then(response => {
+        this.hello = JSON.stringify(response.data);
+      })
+      .catch( error => {
         console.log(error);
-    });
-
-    return(
+      });
+    
+      return(
         <div>
-            <p>{JSON.stringify(HelloResponse)}</p>
+          <p>{this.hello}</p>
         </div>
-    );
+      );
+    }
 }
 export default HelloFromTheOtherSide;
