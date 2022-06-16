@@ -5,7 +5,7 @@ class HelloFromTheOtherSide extends React.Component {
 
     hello: string = 'Yello';
 
-    render() {
+    async componentDidMount() {
       let options = {
         url: 'https://icy-river-0d35d7e03.azurestaticapps.net/api/HelloFromTheOtherside?name=Me',
         method: 'GET'
@@ -18,7 +18,10 @@ class HelloFromTheOtherSide extends React.Component {
       .catch( error => {
         console.log(error);
       });
-    
+    }
+
+    render() {
+ 
       return(
         <div>
           <p>{this.hello}</p>
