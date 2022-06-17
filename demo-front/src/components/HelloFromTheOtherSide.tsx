@@ -1,30 +1,36 @@
 import axios from 'axios'
 import React from 'react';
 
-class HelloFromTheOtherSide extends React.Component {
+interface IProps {
+}
 
-  hello: string;
+interface IState {
+  hello?: string;
+}
+
+class HelloFromTheOtherSide extends React.Component<IProps, IState> {
+
   apiPath: string;
 
   constructor(props: {} | Readonly<{}>){
     super(props);
 
-    this.hello = 'Yello';
+    this.state = { hello: 'Yello'};
     this.apiPath = '/api/HelloFromTheOtherside?name=Me';
   }
 
   async componentDidMount() {
     const resp = await axios.get(this.apiPath);
-    this.hello = resp.data;
+     this.setState({ hello: resp.data});
   }
   
   render() {
     console.log('Starting rendering');
-    return this.hello !== 'Yello' ?
+    return (
       <div>
-        <p>{this.hello}</p>
+        <p>{this.state.hello}</p>
       </div>
-      : null;
+    );
   }
 }
 export default HelloFromTheOtherSide;
