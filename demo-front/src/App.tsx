@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import HelloFromHere from './components/HelloFromHere';
 import HelloFromTheOtherSide from './components/HelloFromTheOtherSide';
+import SomeCards from './components/SomeCards';
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
         <HelloFromHere></HelloFromHere>
           .. 
         <HelloFromTheOtherSide></HelloFromTheOtherSide>
+          ..
+        <SomeCards></SomeCards>
       </header>
     </div>
   );
