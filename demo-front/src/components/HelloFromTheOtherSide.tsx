@@ -12,7 +12,7 @@ class HelloFromTheOtherSide extends React.Component<IProps, IState> {
 
   apiPath: string;
 
-  constructor(props: {} | Readonly<{}>){
+  constructor(props: IProps){
     super(props);
 
     this.state = { hello: 'Yello'};
