@@ -1,13 +1,23 @@
-import React from "react";
+import React, {FC, useState, useEffect} from 'react';
 
-class HelloFromHere extends React.Component {
-    render() {
-        return (
-        <div>
-            <p>Hello</p>
-        </div>
-        );
-    };
+interface HelloProps {
+  enteredName:string;
+  message:string;
+  greetingDispatcher: React.Dispatch<{type:string, payload: string}>;
+}
 
+const HelloFromHere: FC<HelloProps> = ({enteredName: name}:HelloProps) => {
+  const [message,setMessage] = useState("");
+
+  useEffect(()=>{
+    if(name) {
+      setMessage(`Hello from, ${name}`);
+    }
+
+  },[name]);
+  if(!name) {
+        return <div>no name given</div>
+  }
+  return <div>{message}</div>;
 }
 export default HelloFromHere;

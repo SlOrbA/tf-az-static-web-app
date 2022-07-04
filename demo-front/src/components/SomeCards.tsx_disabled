@@ -1,0 +1,44 @@
+import axios from 'axios'
+import { FC } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+
+class CmsCard {
+    "name": string
+    "category" : string
+    "content" : string
+}
+
+const SomeCards: FC = () => {
+
+  const apiPath  = 'https://mockcmsr47f.z6.web.core.windows.net/cards';
+  
+  const resp = axios.get(apiPath);
+ 
+  const {cards} = resp.data;
+
+    return (
+      <div className="col-md-6">
+        <h4>Cards</h4>
+          {cards &&
+            cards.map((card: CmsCard, index: number) => (
+              <p>
+                <Card>
+                  <CardContent>
+                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                      {card.category}, {card.name}
+                    </Typography>
+                    <Typography>
+                      {card.content}
+                    </Typography>
+                  </CardContent> 
+                </Card>
+              </p>
+            ))}
+      </div>
+    );
+}
+
+export default SomeCards;
+

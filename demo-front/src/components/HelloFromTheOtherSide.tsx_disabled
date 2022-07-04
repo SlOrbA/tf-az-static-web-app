@@ -1,0 +1,16 @@
+import axios from 'axios'
+import { FC, useState } from 'react';
+const HelloFromTheOtherSide: FC = () => {
+
+  const apiPath = '/api/HelloFromTheOtherside?name=Me';
+
+  const [message,setMessage] = useState("");
+
+  const resp = axios.get(apiPath);
+
+  setMessage(resp.data);
+
+  return <div><p>{message}</p></div>;
+}
+export default HelloFromTheOtherSide;
+
